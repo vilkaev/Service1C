@@ -56,10 +56,11 @@ namespace Service1C
             {
                 Icon = GetIconFromImageSource(new Uri("pack://application:,,,/Service1C;component/TrayIcon.ico")),//Specify the icon to appear in the notification area.
                 Visible = true,
-                ContextMenuStrip = new ContextMenuStrip()
+                ContextMenuStrip = new ContextMenuStrip(),
+                Text = "Service 1C"
             };
 
-            notifyTrayIcon.Click += OpenMenuItem_Click;
+            notifyTrayIcon.MouseClick += OpenMenuItem_Click;
 
             //// Add a context menu to the NotifyIcon
             ContextMenuStrip contextMenu = new();
@@ -89,7 +90,10 @@ namespace Service1C
 
         private void OpenMenuItem_Click(object sender, EventArgs e)
         {
-            AssociatedObject.Show();
+            if ( e != null && (e as MouseEventArgs).Button == MouseButtons.Left)
+            {
+                AssociatedObject.Show();
+            }
             AssociatedObject.WindowState = WindowState.Normal;
             AssociatedObject.Activate();
         }

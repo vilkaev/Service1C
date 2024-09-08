@@ -7,11 +7,12 @@
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
         xmlns:ntIconBeh="clr-namespace:Service1C"
-        Title="Service 1C" Height="60" Width="500">
+        Title="Service 1C" Height="80" Width="500">
     <i:Interaction.Behaviors>
         <local:NotifyTrayIconBehavior />
     </i:Interaction.Behaviors>
-    <Grid>
-        <CheckBox IsChecked="True" IsEnabled="True">Изменять заголовок конфигуратора</CheckBox>
-    </Grid>
+    <StackPanel Height="44" VerticalAlignment="Top">
+        <CheckBox Name="chb1"  Click="changeAutoStartap" IsChecked="True" IsEnabled="True" Content="Автозапуск"/>
+        <CheckBox IsChecked="True" IsEnabled="True" Content="Изменять заголовок конфигуратора"/>
+    </StackPanel>
 </Window>
